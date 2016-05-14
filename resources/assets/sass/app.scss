@@ -1,16 +1,68 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-$body-background: #C2C2C2;
+$body-background: #DDDBDB;
+$main-container-background: #222;
+$border-containers: 10px;
 
 body{
   background: $body-background;
 
   nav{
-    .navbar-logo{
-      padding: 7px 15px;
+    width: 92%;
+    margin: 0 auto;
+    border-radius: $border-containers;
+
+    .navbar-header{
+      padding-left: 50px;
+      .navbar-logo{
+        padding: 7px 15px;
+      }
     }
+
     #loginModalTrigger{
+      padding-right: 20px;
       cursor: pointer;
+    }
+  }
+
+  .main-container{
+    height: 700px;
+    margin: 0 auto;
+    text-align: center;
+
+
+    #nav-container{
+      width: 20%;
+      height: 100%;
+      display: inline-block;
+      background: $main-container-background;
+      margin-right: 20px;
+      border-radius: $border-containers;
+    }
+
+    #editor-container{
+      width: 70%;
+      height: 100%;
+      display: inline-block;
+      background: $main-container-background;
+      border-radius: $border-containers;
+    }
+  }
+
+  .row-footer{
+    color: #fff;
+    width: 92%;
+    margin: 10px auto;
+    padding-right: 50px;
+    border-radius: $border-containers;
+    background: $main-container-background;
+    .container{
+      width: 100%;
+      p{
+        float:right;
+        padding: 15px 0px 5px 0px;
+      }
+
     }
   }
 }
