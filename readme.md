@@ -12,3 +12,7 @@
 4º git init & setup .gitignore & first commit
 
 5º define layout.blade.php
+
+6º define header and footer. added by includes
+
+7º update gulpfile and add logo.png

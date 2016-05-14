@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.js","main.js"],"names":[],"mappings":"AAAA;ACAA;AACA;AACA;AACA;AACA","file":"app.js","sourcesContent":["","$(document).ready(function(){\n    $('#loginModalTrigger').click(function() {\n        $('#loginModal').modal();\n    });\n});"],"sourceRoot":"/source/"}
