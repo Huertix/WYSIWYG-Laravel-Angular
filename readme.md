@@ -10,3 +10,5 @@
     bower install angular-wysiwyg --save
 
 4º git init & setup .gitignore & first commit
+
+5º define layout.blade.php
