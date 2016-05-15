@@ -1,0 +1,18 @@
+<div id="nav-container" class="container">
+    <h4>PROJECT LIST</h4>
+    <ul>
+        <li ng-repeat="project in projects" class="row">
+            <a href="javascript:void(0);" ng-click="loadText(project.id)">
+                <div class="project-row">
+                    <b>{{ project.name }}</b> <span class="small">last modified: {{ project.date }}</span>
+                    <p>{{ project.comment }}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div id="editor-container">
+
+    <text-angular ng-model="data.text"></text-angular>
+</div>

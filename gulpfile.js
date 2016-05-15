@@ -21,9 +21,13 @@ elixir(function(mix) {
 
     mix.scripts([
         'controllers/userController.js',
-        'controllers/dashboardController.js',
-        'controllers/navController.js'
+        'controllers/myController.js'
     ], 'public/js/controllers.js');
+
+    mix.scripts([
+        'models/userModel.js',
+        'models/projectModel.js'
+    ], 'public/js/models.js');
     
     
     mix.copy('resources/images', 'public/images')

@@ -13,7 +13,7 @@
     @include('header')
     @include('login-modal')
 
-    <div class="main-container" >
+    <div class="main-container"  ng-controller="myController">
         <div ng-view></div>
     </div>
 
@@ -28,5 +28,6 @@
     <script type="text/javascript" src="{{ asset('bower_components/textAngular/dist/textAngular.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/controllers.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/models.js') }}"></script>
 </body>
 </html>
