@@ -18,6 +18,12 @@ elixir(function(mix) {
         'app.js',
         'main.js'
     ], 'public/js/app.js');
+
+    mix.scripts([
+        'controllers/userController.js',
+        'controllers/dashboardController.js',
+        'controllers/navController.js'
+    ], 'public/js/controllers.js');
     
     
     mix.copy('resources/images', 'public/images')
