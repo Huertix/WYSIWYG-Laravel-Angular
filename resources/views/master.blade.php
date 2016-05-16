@@ -9,15 +9,16 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
     <script>var baseUrl = "{{ url('/') }}/";</script>
 </head>
-<body>
-    @include('header')
-    @include('login-modal')
+<body ng-controller="myController">
 
-    <div class="main-container"  ng-controller="myController">
+    <div ng-include src="'views/header.html'"></div>
+    <div ng-include src="'views/login-modal.html'"></div>
+
+    <div class="main-container">
         <div ng-view></div>
     </div>
+    <div ng-include src="'views/footer.html'"></div>
 
-    @include('footer')
 
     <script type="text/javascript" src="{{ asset('bower_components/angular/angular.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bower_components/angular-route/angular-route.min.js') }}"></script>

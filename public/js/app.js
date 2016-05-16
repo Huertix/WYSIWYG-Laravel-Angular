@@ -1,7 +1,18 @@
+var myApp = angular.module('myApp', ['ngRoute','textAngular']);
 
-$(document).ready(function(){
-    $('#loginModalTrigger').click(function() {
-        $('#loginModal').modal();
-    });
-});
+myApp.config(['$routeProvider','$locationProvider',
+    function($routeProvider, $locationProvider) {
+        $routeProvider.when('/', {
+            templateUrl: 'views/home.html'
+        });
+        
+        $routeProvider.when('/logout', {
+            templateUrl: 'views/logout.html',
+            controller: 'userController',
+            authenticated: true
+        });
+
+        $routeProvider.otherwise('/');
+    }
+]);
 //# sourceMappingURL=app.js.map
