@@ -77,6 +77,7 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
             $scope.showUser= false;
             this.reset();
             projectModel.projects.splice(0,projectModel.projects.length);
+            init();
         },
         getClass: function(object){
             return object.isActive ? 'active' : '';
@@ -90,6 +91,16 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
             $scope.showLogin = !$scope.showUser;
             $scope.user.name = userModel.getUserObject().name;
             projectModel.getProjects();
+        }else{
+            projectModel.projects[0] =
+            {
+                isActive: false,
+                id: 0,
+                name: 'Example',
+                comment: 'This is an example',
+                date: new Date(),
+                text: '<p>Test Content<p>'
+            };
         }
 
 

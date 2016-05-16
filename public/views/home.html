@@ -5,8 +5,9 @@
             <a href="javascript:void(0);" >
                 <div class="project-row">
                     <div class="nav-project-info col-sm-10 col-xs-10" ng-click="loadText(project.id)" data-id="{{ project.id }}">
-                        <b>{{ project.name }} </b><span class="pull-right"><small> {{ project.date }}</small></span>
+                        <b>{{ project.name }} </b>
                         <p>{{ project.comment }}</p>
+                        <small class="pull-right"> {{ project.date }}</small>
                     </div>
                     <div class="nav-project-options col-sm-2 col-xs-2" hidden>
                         <span ng-click="remove(project.id)"><i class="fa fa-trash" aria-hidden="true"></i></span>
