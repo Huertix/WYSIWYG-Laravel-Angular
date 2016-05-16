@@ -17,3 +17,8 @@ Route::get('/', function () {
 
 Route::post('auth','UserController@checkAuth');
 Route::resource('user','UserController');
+
+Route::get('project/all', 'ProjectController@getProjects');
+
+Route::resource('project','ProjectController');
+

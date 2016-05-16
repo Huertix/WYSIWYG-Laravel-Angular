@@ -1,41 +1,7 @@
-myApp.factory('projectModel',[function(){
+myApp.factory('projectModel',['$http', function($http){
     var projectModel = {};
 
-    projectModel.projects =  [
-        {
-            isActive: false,
-            id: 0,
-            name: 'TEST1',
-            comment: 'This is Test1',
-            date: '1.1.11',
-            text: '<p>Hola TEST1<br></p>'
-            
-        },
-        {
-            isActive: false,
-            id: 1,
-            name: 'TEST2',
-            comment: 'This is Test2',
-            date: '2.2.22',
-            text: '<p>Hola TEST2<br></p>'
-        },
-        {
-            isActive: false,
-            id: 2,
-            name: 'TEST3',
-            comment: 'This is Test3',
-            date: '3.3.33',
-            text: '<p>Hola TEST3<br></p>'
-        },
-        {
-            isActive: false,
-            id: 3,
-            name: 'TEST4',
-            comment: 'This is Test4',
-            date: '4.4.44',
-            text: '<p>Hola TEST4<br></p>'
-        }
-    ];
+    projectModel.projects =  [];
 
     projectModel.loadText = function(id){
         var index = projectModel.findProjectIndex(id);
@@ -71,7 +37,6 @@ myApp.factory('projectModel',[function(){
         var index = projectModel.findProjectIndex(id);
 
         if(index != null){
-            console.log('MyIndex ' + index);
             projectModel.projects.splice(index,1);
         }
     };
@@ -84,6 +49,36 @@ myApp.factory('projectModel',[function(){
         }
         return null;
     };
-    
+
+    projectModel.getProjects = function(){
+        return $http({
+            headers: {
+                'Content-Type':'application/json'
+            },
+            url: baseUrl + 'project/all',
+            method: "GET"
+        }).success(function(response){
+
+            var projectsObj = angular.fromJson(JSON.stringify(response));
+
+            for (var i=0; i < projectsObj.length; i++){
+
+                projectModel.projects[i] =
+                {
+                    isActive: false,
+                    id: projectsObj[i].id,
+                    name: projectsObj[i].name,
+                    comment: 'comment',
+                    date: projectsObj[i].modified_at,
+                    text: projectsObj[i].body
+                }
+            }
+        }).error(function(data, status, headers){
+            console.log(data, status, headers);
+            alert('Projects Load Error');
+        });
+        
+    };
+
     return projectModel
 }]);

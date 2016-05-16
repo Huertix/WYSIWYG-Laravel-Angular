@@ -64,9 +64,9 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
             };
             userModel.doLogin(data).then(function () {
                 $scope.user.name = userModel.getUserObject().name;
-                console.log(userModel.getUserObject());
                 $scope.showLogin = false;
                 $scope.showUser= true;
+                projectModel.getProjects();
             });
             
             $('#loginModal').modal('hide');
@@ -83,17 +83,16 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
         }
     });
 
+    // method to initialize user info in header
     var init = function () {
         if(userModel.getUserObject()){
             $scope.showUser = true;
             $scope.showLogin = !$scope.showUser;
             $scope.user.name = userModel.getUserObject().name;
+            projectModel.getProjects();
         }
 
-        console.log(userModel.getUserObject());
-    };
 
+    };
     init();
 }]);
-
-

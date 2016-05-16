@@ -51,4 +51,8 @@
     php artisan db:seed --class=ProjectsTableSeeder
 
 
+12º create model Project
+    php artisan make:model Project
+
+
 
