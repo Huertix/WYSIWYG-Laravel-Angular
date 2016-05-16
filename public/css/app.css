@@ -45,6 +45,9 @@ body {
           border-radius: 5px; }
           body .main-container #nav-container ul li:hover a, body .main-container #nav-container ul .active a {
             color: #000; }
+          body .main-container #nav-container ul li:hover .nav-project-options, body .main-container #nav-container ul .active .nav-project-options {
+            display: inline-block;
+            padding: 15px 0px 0px 20px; }
     body .main-container #editor-container {
       width: 70%;
       height: 535px;

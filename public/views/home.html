@@ -2,10 +2,15 @@
     <h4>PROJECT LIST</h4>
     <ul>
         <li ng-repeat="project in projects" class="row">
-            <a href="javascript:void(0);" ng-click="loadText(project.id)">
+            <a href="javascript:void(0);" >
                 <div class="project-row">
-                    <b>{{ project.name }}</b> <span class="small">last modified: {{ project.date }}</span>
-                    <p>{{ project.comment }}</p>
+                    <div class="nav-project-info col-sm-10" ng-click="loadText(project.id)">
+                        <b>{{ project.name }}</b> <span class="small">last modified: {{ project.date }}</span>
+                        <p>{{ project.comment }}</p>
+                    </div>
+                    <div class="nav-project-options col-sm-2" hidden>
+                    <span ng-click="remove(project.id)"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                </div>
                 </div>
             </a>
         </li>

@@ -12,6 +12,9 @@ myApp.controller('myController',['$scope','projectModel', function($scope, proje
             console.log(id);
             this.data.text = projectModel.loadText(id);
         },
+        remove: function(id){
+            projectModel.removeProject(id);
+        },
         trigerLoginModal: function(){
             $('#loginModal').modal();
         },
@@ -20,5 +23,4 @@ myApp.controller('myController',['$scope','projectModel', function($scope, proje
             console.log($scope.login.password);
         }
     });
-
 }]);

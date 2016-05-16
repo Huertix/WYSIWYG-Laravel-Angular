@@ -37,7 +37,24 @@ myApp.factory('projectModel',[function(){
         return projectModel.projects[id].text;
     };
 
+    projectModel.removeProject = function(id){
 
+        var index = projectModel.findProjectIndex(id);
+
+        if(index != null){
+            console.log('MyIndex ' + index);
+            projectModel.projects.splice(index,1);
+        }
+    };
+
+    projectModel.findProjectIndex = function(id){
+        for (var i=0; i < projectModel.projects.length; i++ ){
+            if (projectModel.projects[i].id === id) {
+                return i;
+            }
+        }
+        return null;
+    };
     
     return projectModel
 }]);
