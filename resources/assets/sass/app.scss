@@ -96,7 +96,7 @@ body{
       border-radius: $border-containers;
 
       .ta-scroll-window{
-        max-height: $editor-height;
+        max-height: $editor-height + 2px;
       }
 
       .ta-scroll-window.form-control{

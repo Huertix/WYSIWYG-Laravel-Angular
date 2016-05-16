@@ -27,6 +27,10 @@ myApp.controller('myController',['$scope','projectModel', function($scope, proje
         doLogin: function(loginForm){
             console.log($scope.login.email);
             console.log($scope.login.password);
+        },
+        getClass: function(object){
+            console.log(object.isActive);
+            return object.isActive ? 'active' : '';
         }
     });
 }]);
