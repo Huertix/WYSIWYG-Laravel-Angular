@@ -59,10 +59,14 @@ body {
       background: #222;
       color: #fff;
       border-radius: 10px; }
+      body .main-container #editor-container .ta-scroll-window {
+        max-height: 400px; }
       body .main-container #editor-container .ta-scroll-window.form-control {
         margin-top: 5px; }
       body .main-container #editor-container .ta-scroll-window > .ta-bind {
-        min-height: 444px; }
+        min-height: 400px; }
+      body .main-container #editor-container .editor-options {
+        margin-top: 10px; }
   body .row-footer {
     color: #fff;
     width: 92%;
@@ -70,10 +74,8 @@ body {
     padding-right: 50px;
     border-radius: 10px;
     background: #222; }
-    body .row-footer .container {
-      width: 100%; }
-      body .row-footer .container p {
-        float: right;
-        padding: 15px 0px 5px 0px; }
+    body .row-footer p {
+      float: right;
+      padding: 15px 0px 5px 0px; }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,5 +1,5 @@
 <div id="nav-container" class="container">
-    <h4>PROJECT LIST</h4>
+    <h4>PROJECTS LIST</h4>
     <ul>
         <li ng-repeat="project in projects" class="row">
             <a href="javascript:void(0);" >
@@ -9,8 +9,8 @@
                         <p>{{ project.comment }}</p>
                     </div>
                     <div class="nav-project-options col-sm-2" hidden>
-                    <span ng-click="remove(project.id)"><i class="fa fa-trash" aria-hidden="true"></i></span>
-                </div>
+                        <span ng-click="remove(project.id)"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    </div>
                 </div>
             </a>
         </li>
@@ -18,6 +18,9 @@
 </div>
 
 <div id="editor-container">
-
     <text-angular ng-model="data.text"></text-angular>
+    <div class="editor-options pull-right">
+        <button type="button" class="btn btn-info btn-sm" ng-click="reset()">RESET</button>
+        <button type="button" class="btn btn-info btn-sm" ng-click="save()">SAVE</button>
+    </div>
 </div>
