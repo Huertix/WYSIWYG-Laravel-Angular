@@ -43,11 +43,27 @@ myApp.factory('projectModel',[function(){
         projectModel.projects[index].isActive = true;
         return projectModel.projects[index].text;
     };
+    projectModel.getName = function(id){
+        var index = projectModel.findProjectIndex(id);
+        return projectModel.projects[index].name;
+    };
+    projectModel.getComment = function(id){
+        var index = projectModel.findProjectIndex(id);
+        return projectModel.projects[index].comment;
+    };
 
     projectModel.resetAllActive = function(){
       for( var i=0; i< projectModel.projects.length; i++){
           projectModel.projects[i].isActive = false;
       }
+    };
+
+    projectModel.getProjectActive = function(){
+        for( var i=0; i< projectModel.projects.length; i++){
+            if( projectModel.projects[i].isActive )
+                return projectModel.projects[i];
+        }
+        return null;
     };
 
     projectModel.removeProject = function(id){

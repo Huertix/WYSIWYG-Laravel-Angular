@@ -6,13 +6,14 @@
                 <h4 class="modal-title">Save Content</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form" name="saveForm" ng-submit="saveProject()">
 
                         <label for="name" class="col-sm-offset-1 col-sm-10 pull-left">Project Name</label>
 
                     <div class="form-group">
                         <div class="col-sm-offset-1 col-sm-10">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Project Name">
+                            <input type="text" ng-model="save.name" class="form-control" id="name"
+                                   name="name" placeholder="Enter Project Name">
                         </div>
                     </div>
 
@@ -20,7 +21,8 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-1 col-sm-10">
-                            <input type="text" class="form-control" id="" name="comment" placeholder="Enter a Short Comment">
+                            <input type="text" ng-model="save.comment" class="form-control" id="comment"
+                                   name="comment" placeholder="Enter a Short Comment">
                         </div>
                     </div>
                     <div class="form-group">
