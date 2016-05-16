@@ -15,9 +15,8 @@
     <div ng-include src="'views/login-modal.html'"></div>
     <div ng-include src="'views/save-modal.html'"></div>
 
-    <div class="main-container">
-        <div ng-view></div>
-    </div>
+    <div class="container main-container " ng-view></div>
+
     <div ng-include src="'views/footer.html'"></div>
 
 

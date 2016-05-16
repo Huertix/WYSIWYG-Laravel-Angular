@@ -6,13 +6,14 @@ $border-containers: 10px;
 $page-height: 535px;
 $font-color: #fff;
 $editor-height: 400px;
+$page-width: 98%;
 
 
 body{
   background: $body-background;
 
   nav{
-    width: 92%;
+    width: $page-width;
     margin: 0 auto;
     border-radius: $border-containers;
 
@@ -37,16 +38,11 @@ body{
 
   .main-container{
     height: $page-height;
-    margin: 0 auto;
-    text-align: center;
-
+    width: 118%;
 
     #nav-container{
-      width: 20%;
       height: $page-height;
-      display: inline-block;
-      float: left;
-      margin-left: 60px;
+      margin-right: 20px;
       background: $main-container-background;
       color: $font-color;
       text-align: left;
@@ -84,11 +80,7 @@ body{
     }
 
     #editor-container{
-      width: 70%;
       height: $page-height;
-      display: inline-block;
-      float: right;
-      margin-right: 60px;
       padding: 10px;
       text-align: left;
       background: $main-container-background;
@@ -114,7 +106,7 @@ body{
 
   .row-footer{
     color: #fff;
-    width: 92%;
+    width: $page-width;
     margin: 10px auto;
     padding-right: 50px;
     border-radius: $border-containers;
