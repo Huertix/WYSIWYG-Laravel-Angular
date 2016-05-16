@@ -47,6 +47,7 @@ body {
       height: 535px; }
       body .main-container #editor-container .dashboard {
         padding: 10px;
+        height: 100%;
         text-align: left;
         background: #222;
         color: #fff;

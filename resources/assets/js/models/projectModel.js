@@ -55,7 +55,7 @@ myApp.factory('projectModel',['$http', function($http){
             headers: {
                 'Content-Type':'application/json'
             },
-            url: baseUrl + 'project/all',
+            url: baseUrl + 'project',
             method: "GET"
         }).success(function(response){
 
@@ -68,8 +68,8 @@ myApp.factory('projectModel',['$http', function($http){
                     isActive: false,
                     id: projectsObj[i].id,
                     name: projectsObj[i].name,
-                    comment: 'comment',
-                    date: projectsObj[i].modified_at,
+                    comment: projectsObj[i].comment,
+                    date: projectsObj[i].updated_at,
                     text: projectsObj[i].body
                 }
             }

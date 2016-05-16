@@ -12,10 +12,19 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'David',
-            'email' => 'myemail23@raumbild.com',
-            'password' => bcrypt('123'),
-        ]);
+        DB::table('users')->insert(
+            array(
+                array(
+                    'name' => 'David',
+                    'email' => 'me@raumbild.com',
+                    'password' => bcrypt('123')
+                ),
+                array(
+                    'name' => 'Mikel',
+                    'email' => 'other@raumbild.com',
+                    'password' => bcrypt('123')
+                )
+            )
+        );
     }
 }

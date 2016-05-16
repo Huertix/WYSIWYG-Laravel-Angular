@@ -40,9 +40,11 @@
         {
             DB::table('projects')->insert([
                 'name' => 'Proyect 1',
+                'comment' =>'This is proyect 1',
                 'body' => '<p>This is the default proyect</p>',
                 'owner_id' => '1',
-                'modified_at' => Carbon::now()
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
 
@@ -53,6 +55,6 @@
 
 12º create model Project
     php artisan make:model Project
-
+    php artisan route:list
 
 

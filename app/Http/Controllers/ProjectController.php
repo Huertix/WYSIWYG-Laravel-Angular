@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
-
-    public function getProjects(){
-        return Project::all();
-    }
 
 
     /**
@@ -22,7 +20,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-
+        return Project::where('owner_id', Auth::user()->id)->with('user')->get();
     }
 
     /**

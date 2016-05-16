@@ -12,11 +12,32 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('projects')->insert([
-            'name' => 'Proyect 1',
-            'body' => '<p>This is the default proyect</p>',
-            'owner_id' => '1',
-            'modified_at' => Carbon::now()
-        ]);
+        DB::table('projects')->insert(
+            array(
+                array(
+                    'name' => 'Proyect 1',
+                    'comment' => 'This is proyect 1',
+                    'body' => '<p>This is the default proyect</p>',
+                    'owner_id' => '1',
+                    'created_at' => Carbon::now('Europe/Berlin'),
+                    'updated_at' => Carbon::now('Europe/Berlin')
+                ),
+                array(
+                    'name' => 'My Project',
+                    'comment' => 'This is my project',
+                    'body' => '<p>My project</p>',
+                    'owner_id' => '1',
+                    'created_at' => Carbon::now('Europe/Berlin'),
+                    'updated_at' => Carbon::now('Europe/Berlin')
+                ),
+                array(
+                    'name' => 'Other User',
+                    'comment' => 'Project from other user',
+                    'body' => '<p>My project, I am other user</p>',
+                    'owner_id' => '2',
+                    'created_at' => Carbon::now('Europe/Berlin'),
+                    'updated_at' => Carbon::now('Europe/Berlin')
+                )
+            ));
     }
 }
