@@ -16,10 +16,11 @@ myApp.controller('myController',['$scope','projectModel', function($scope, proje
             projectModel.removeProject(id);
         },
         reset: function(){
-          this.data.text = '';
+            projectModel.resetAllActive();
+            this.data.text = '';
         },
         save: function(){
-            alert(this.data.text);
+            $('#saveModal').modal();
         },
         trigerLoginModal: function(){
             $('#loginModal').modal();
