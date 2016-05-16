@@ -15,7 +15,6 @@ myApp.factory('userModel',['$http','$window',function($http, $window){
             }
         }).success(function(response){
             $window.sessionStorage["auth"] = JSON.stringify(response);
-            console.log($window.sessionStorage["auth"]);
         }).error(function(data, status, headers){
             console.log(data, status, headers);
             alert('Login Error');
@@ -35,12 +34,13 @@ myApp.factory('userModel',['$http','$window',function($http, $window){
 
     userModel.getUserObject = function() {
         var userObj = angular.fromJson($window.sessionStorage["auth"]);
-        return userObj;
+        if(userObj != null)
+            return userObj;
+        return null;
     }
 
     userModel.doUserLogout = function(){
         delete $window.sessionStorage["auth"];
-        console.log("session out: " + $window.sessionStorage["auth"]);
     };
 
 

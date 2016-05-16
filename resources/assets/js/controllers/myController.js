@@ -1,17 +1,21 @@
-myApp.controller('myController',['$scope','projectModel', function($scope, projectModel){
+myApp.controller('myController',['$scope','projectModel','userModel', function($scope, projectModel, userModel){
     angular.extend($scope, {
 
         login:{},
 
         save:{},
 
+        user: {},
+
         data: {
             text: ''
         },
         projects: projectModel.projects,
 
+        showUser: false,
+        showLogin: true,
+
         loadText: function(id){
-            console.log(id);
             this.data.text = projectModel.loadText(id);
             this.save.name = projectModel.getName(id);
             this.save.comment = projectModel.getComment(id);
@@ -29,10 +33,6 @@ myApp.controller('myController',['$scope','projectModel', function($scope, proje
             $('#saveModal').modal();
         },
         saveProject: function(){
-            console.log($scope.save.name);
-            console.log($scope.save.comment);
-            console.log($scope.data.text);
-
             var index;
             var projectActive = projectModel.getProjectActive();
             if(projectActive != null){
@@ -58,13 +58,42 @@ myApp.controller('myController',['$scope','projectModel', function($scope, proje
             $('#loginModal').modal();
         },
         doLogin: function(){
-            console.log($scope.login.email);
-            console.log($scope.login.password);
+            var data = {
+                email: $scope.login.email,
+                password: $scope.login.password
+            };
+            userModel.doLogin(data).then(function () {
+                $scope.user.name = userModel.getUserObject().name;
+                console.log(userModel.getUserObject());
+                $scope.showLogin = false;
+                $scope.showUser= true;
+            });
+            
             $('#loginModal').modal('hide');
         },
+        doLogout: function(){
+            userModel.doUserLogout();
+            $scope.showLogin = true;
+            $scope.showUser= false;
+            this.reset();
+            projectModel.projects.splice(0,projectModel.projects.length);
+        },
         getClass: function(object){
-            console.log(object.isActive);
             return object.isActive ? 'active' : '';
         }
     });
+
+    var init = function () {
+        if(userModel.getUserObject()){
+            $scope.showUser = true;
+            $scope.showLogin = !$scope.showUser;
+            $scope.user.name = userModel.getUserObject().name;
+        }
+
+        console.log(userModel.getUserObject());
+    };
+
+    init();
 }]);
+
+
