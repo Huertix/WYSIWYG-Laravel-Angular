@@ -1,14 +1,14 @@
-<div id="nav-container" class="col-sm-2">
+<div id="nav-container" class="col-sm-2 col-sx-12">
     <h4>PROJECTS LIST</h4>
     <ul>
         <li ng-repeat="project in projects" class="row" ng-class="getClass(project)">
             <a href="javascript:void(0);" >
                 <div class="project-row">
-                    <div class="nav-project-info col-sm-10" ng-click="loadText(project.id)">
-                        <b>{{ project.name }}</b> <span class="small">last modified: {{ project.date }}</span>
+                    <div class="nav-project-info col-sm-10 col-xs-10" ng-click="loadText(project.id)">
+                        <b>{{ project.name }} </b><span class="pull-right"><small> {{ project.date }}</small></span>
                         <p>{{ project.comment }}</p>
                     </div>
-                    <div class="nav-project-options col-sm-2" hidden>
+                    <div class="nav-project-options col-sm-2 col-xs-2" hidden>
                         <span ng-click="remove(project.id)"><i class="fa fa-trash" aria-hidden="true"></i></span>
                     </div>
                 </div>
@@ -16,10 +16,12 @@
         </li>
     </ul>
 </div>
-<div id="editor-container" class="col-sm-8">
-    <text-angular ng-model="data.text"></text-angular>
-    <div class="editor-options pull-right">
-        <button type="button" class="btn btn-info btn-sm" ng-click="reset()">NEW</button>
-        <button type="button" class="btn btn-info btn-sm" ng-click="trigerSaveModal()">SAVE</button>
+<div id="editor-container" class="col-sm-10 col-xs-12">
+    <div class="dashboard">
+        <text-angular ng-model="data.text"></text-angular>
+        <div class="editor-options pull-right">
+            <button type="button" class="btn btn-info btn-sm" ng-click="reset()">NEW</button>
+            <button type="button" class="btn btn-info btn-sm" ng-click="trigerSaveModal()">SAVE</button>
+        </div>
     </div>
 </div>

@@ -15,10 +15,9 @@ body {
       cursor: pointer; }
   body .main-container {
     height: 535px;
-    width: 118%; }
+    width: 100%; }
     body .main-container #nav-container {
       height: 535px;
-      margin-right: 20px;
       background: #222;
       color: #fff;
       text-align: left;
@@ -45,18 +44,20 @@ body {
             display: inline-block;
             padding: 15px 0px 0px 20px; }
     body .main-container #editor-container {
-      height: 535px;
-      padding: 10px;
-      text-align: left;
-      background: #222;
-      color: #fff;
-      border-radius: 10px; }
-      body .main-container #editor-container .ta-scroll-window {
-        max-height: 402px; }
-      body .main-container #editor-container .ta-scroll-window.form-control {
-        margin-top: 5px; }
-      body .main-container #editor-container .ta-scroll-window > .ta-bind {
-        min-height: 400px; }
+      height: 535px; }
+      body .main-container #editor-container .dashboard {
+        height: 100%;
+        padding: 10px;
+        text-align: left;
+        background: #222;
+        color: #fff;
+        border-radius: 10px; }
+        body .main-container #editor-container .dashboard .ta-scroll-window {
+          max-height: 402px; }
+        body .main-container #editor-container .dashboard .ta-scroll-window.form-control {
+          margin-top: 5px; }
+        body .main-container #editor-container .dashboard .ta-scroll-window > .ta-bind {
+          min-height: 400px; }
       body .main-container #editor-container .editor-options {
         margin-top: 10px; }
   body .row-footer {

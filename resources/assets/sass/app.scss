@@ -38,11 +38,10 @@ body{
 
   .main-container{
     height: $page-height;
-    width: 118%;
+    width: 100%;
 
     #nav-container{
       height: $page-height;
-      margin-right: 20px;
       background: $main-container-background;
       color: $font-color;
       text-align: left;
@@ -81,23 +80,25 @@ body{
 
     #editor-container{
       height: $page-height;
-      padding: 10px;
-      text-align: left;
-      background: $main-container-background;
-      color: $font-color;
-      border-radius: $border-containers;
+      .dashboard{
+        padding: 10px;
+        text-align: left;
+        background: $main-container-background;
+        color: $font-color;
+        border-radius: $border-containers;
+        .ta-scroll-window{
+          max-height: $editor-height + 2px;
+        }
 
-      .ta-scroll-window{
-        max-height: $editor-height + 2px;
+        .ta-scroll-window.form-control{
+          margin-top: 5px;
+        }
+
+        .ta-scroll-window > .ta-bind{
+          min-height: $editor-height;
+        }
       }
 
-      .ta-scroll-window.form-control{
-        margin-top: 5px;
-      }
-
-      .ta-scroll-window > .ta-bind{
-        min-height: $editor-height;
-      }
       .editor-options{
         margin-top:10px;
       }
@@ -120,3 +121,18 @@ body{
     }
   }
 }
+
+
+//nav-mobil{
+//  position: absolute;
+//  top: 72px;
+//  left: 0px;
+//  opacity: 0.9;
+//  z-index: 10;
+//  width: 255px;
+//  height: 535px;
+//  background: #222;
+//  color: #fff;
+//  text-align: left;
+//  border-radius: 10px;
+//}
