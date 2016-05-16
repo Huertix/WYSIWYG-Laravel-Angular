@@ -1,40 +1,40 @@
 myApp.factory('projectModel',[function(){
     var projectModel = {};
 
-
     projectModel.projects =  [
         {
             id: 0,
             name: 'TEST1',
             comment: 'This is Test1',
             date: '1.1.11',
-            text: '<p>Hola luis<br></p>'
+            text: '<p>Hola TEST1<br></p>'
         },
         {
             id: 1,
             name: 'TEST2',
             comment: 'This is Test2',
             date: '2.2.22',
-            text: '<p>Hola Pepe<br></p>'
+            text: '<p>Hola TEST2<br></p>'
         },
         {
             id: 2,
             name: 'TEST3',
             comment: 'This is Test3',
             date: '3.3.33',
-            text: '<p>Hola jose<br></p>'
+            text: '<p>Hola TEST3<br></p>'
         },
         {
             id: 3,
             name: 'TEST4',
             comment: 'This is Test4',
             date: '4.4.44',
-            text: '<p>Hola Miguel<br></p>'
+            text: '<p>Hola TEST4<br></p>'
         }
     ];
 
     projectModel.loadText = function(id){
-        return projectModel.projects[id].text;
+        var index = projectModel.findProjectIndex(id);
+        return projectModel.projects[index].text;
     };
 
     projectModel.removeProject = function(id){
