@@ -111,9 +111,6 @@ myApp.controller('myController',['$scope','projectModel','userModel','$location'
         toggleProjectsList: function(){
             this.isProjectsListOpen = !this.isProjectsListOpen;
             this.isProjectsListClose = !this.isProjectsListClose;
-            console.log(this.isProjectsListOpen);
-            console.log(this.isProjectsListClose);
-            console.log('-----');
         }
     });
 
