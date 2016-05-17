@@ -2,7 +2,7 @@ myApp.factory('userModel',['$http','$window',function($http, $window){
     var userModel = {};
 
     userModel.doLogin = function(data){
-
+        
         return $http({
             headers: {
                 'Content-Type':'application/json'

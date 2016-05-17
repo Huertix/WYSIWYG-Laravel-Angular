@@ -80,5 +80,60 @@ myApp.factory('projectModel',['$http', function($http){
         
     };
 
+    projectModel.saveProjects = function(obj){
+
+        return $http({
+            headers: {
+                'Content-Type':'application/json'
+            },
+            url: baseUrl + 'project',
+            method: "POST",
+            data: {
+                name: obj.name,
+                comment: obj.comment,
+                body: obj.body,
+                owner_id: obj.owner_id
+            }
+        }).success(function(response){
+            var projectsObj = angular.fromJson(JSON.stringify(response));
+
+        }).error(function(data, status, headers){
+            console.log(data, status, headers);
+            alert('Projects Load Error');
+        });
+
+    };
+
+
+    projectModel.updateProjects = function(){
+        return $http({
+            headers: {
+                'Content-Type':'application/json'
+            },
+            url: baseUrl + 'project',
+            method: "GET"
+        }).success(function(response){
+
+            var projectsObj = angular.fromJson(JSON.stringify(response));
+
+            for (var i=0; i < projectsObj.length; i++){
+
+                projectModel.projects[i] =
+                {
+                    isActive: false,
+                    id: projectsObj[i].id,
+                    name: projectsObj[i].name,
+                    comment: projectsObj[i].comment,
+                    date: projectsObj[i].updated_at,
+                    text: projectsObj[i].body
+                }
+            }
+        }).error(function(data, status, headers){
+            console.log(data, status, headers);
+            alert('Projects Load Error');
+        });
+
+    };
+
     return projectModel
 }]);

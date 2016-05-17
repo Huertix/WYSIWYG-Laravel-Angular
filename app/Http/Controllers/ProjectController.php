@@ -28,9 +28,9 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
     }
 
     /**
@@ -41,7 +41,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $project = Project::create([
+            'name' => $request->input('name'),
+            'comment' => $request->input('comment'),
+            'body' => $request->input('body'),
+            'owner_id' => $request->input('owner_id'),
+
+        ]);
+        
+        return response($project, 201);
     }
 
     /**

@@ -33,26 +33,22 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
             $('#saveModal').modal();
         },
         saveProject: function(){
-            var index;
+
+            var project = {};
             var projectActive = projectModel.getProjectActive();
+
+            project.name = this.save.name;
+            project.comment = this.save.comment;
+            project.body = this.data.text;
+            project.owner_id = userModel.getUserObject().id;
+            
             if(projectActive != null){
-                index = projectModel.findProjectIndex(projectActive.id);
+                projectModel.updateProjects(project);
             }else{
-                projectModel.resetAllActive();
-                index = this.projects.length;
+                projectModel.saveProjects(project);
             }
-            projectModel.projects[index] =
-                {
-                    isActive: true,
-                    id: this.projects.length,
-                    name: $scope.save.name,
-                    comment: $scope.save.comment,
-                    date: new Date(),
-                    text: $scope.data.text
-                };
 
             $('#saveModal').modal('hide');
-
         },
         trigerLoginModal: function(){
             $('#loginModal').modal();
