@@ -21,7 +21,10 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
             this.save.comment = projectModel.getComment(id);
         },
         remove: function(id){
-            projectModel.removeProject(id);
+            if(userModel.getUserObject() != null)
+                projectModel.removeProject(id);
+            else
+                projectModel.removeFromGUI(id);
         },
         reset: function(){
             projectModel.resetAllActive();

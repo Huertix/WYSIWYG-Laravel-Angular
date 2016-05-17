@@ -33,9 +33,26 @@ myApp.factory('projectModel',['$http', function($http){
     };
 
     projectModel.removeProject = function(id){
+        return $http({
+            headers: {
+                'Content-Type':'application/json'
+            },
+            url: baseUrl + 'project/' + id,
+            method: "DELETE",
+        }).success(function(response){
+            var projectsObj = angular.fromJson(JSON.stringify(response));
+            projectModel.getProjects();
+            projectModel.removeFromGUI(id);
+            
+        }).error(function(data, status, headers){
+            console.log(data, status, headers);
+            alert('Project Remove  Error');
+        });
 
+    };
+    
+    projectModel.removeFromGUI = function(id){
         var index = projectModel.findProjectIndex(id);
-
         if(index != null){
             projectModel.projects.splice(index,1);
         }
@@ -99,7 +116,7 @@ myApp.factory('projectModel',['$http', function($http){
             projectModel.getProjects();
         }).error(function(data, status, headers){
             console.log(data, status, headers);
-            alert('Projects Load Error');
+            alert('Project Save Error');
         });
 
     };
@@ -125,7 +142,7 @@ myApp.factory('projectModel',['$http', function($http){
 
         }).error(function(data, status, headers){
             console.log(data, status, headers);
-            alert('Projects Load Error');
+            alert('Project Update Error');
         });
 
     };
