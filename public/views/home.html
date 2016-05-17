@@ -1,4 +1,4 @@
-<div id="nav-container" class="col-lg-2 col-sm-12">
+<div class="nav-container col-lg-2 col-sm-12" ng-class="{ 'listProjectsOpen': isProjectsListOpen }">
     <h4>PROJECTS LIST</h4>
     <ul>
         <li ng-repeat="project in projects" class="row" ng-class="getClass(project)">
@@ -16,6 +16,10 @@
             </a>
         </li>
     </ul>
+    <div id="projectsArrow" ng-click="toggleProjectsList()" hidden>
+        <i ng-show="isProjectsListOpen" class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+        <i ng-show="isProjectsListClose" class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+    </div>
 </div>
 <div id="editor-container" class="col-lg-10 col-sm-12">
     <div class="dashboard">
