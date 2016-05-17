@@ -10,7 +10,6 @@
         <a class="navbar-brand" href="javascript:void(0);">RAUMBILD</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-
         <ul class="nav navbar-nav navbar-right" ng-show="showLogin">
             <li>
                 <a id="loginModalTrigger" ng-click="triggerLoginModal()">
@@ -18,13 +17,12 @@
                 </a>
             </li>
         </ul>
-
         <ul class="nav navbar-nav navbar-right" ng-show="showUser">
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
                    role="button" aria-haspopup="true" aria-expanded="false"> {{ user.name }} <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="javascript:void(0)">Profile</a></li>
                     <li><a href="javascript:void(0)" ng-click="doLogout()">Log Out</a></li>
                 </ul>
             </li>
