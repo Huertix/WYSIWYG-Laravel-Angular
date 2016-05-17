@@ -1,4 +1,5 @@
-myApp.controller('myController',['$scope','projectModel','userModel', function($scope, projectModel, userModel){
+myApp.controller('myController',['$scope','projectModel','userModel','$location',
+    function($scope, projectModel, userModel, $location){
     angular.extend($scope, {
 
         login:{},
@@ -6,6 +7,8 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
         save:{},
 
         user: {},
+
+        register: {},
 
         data: {
             text: ''
@@ -32,31 +35,31 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
             this.save.name = '';
             this.save.comment = '';
         },
-        trigerSaveModal: function(){
-            $('#saveModal').modal();
+        triggerSaveModal: function(){
+            if(userModel.getUserObject() != null)
+                $('#saveModal').modal();
+            else
+                this.triggerLoginModal();
         },
         saveProject: function(){
 
             var project = {};
             var projectActive = projectModel.getProjectActive();
 
-
             project.name = this.save.name;
             project.comment = this.save.comment;
             project.body = this.data.text;
             project.owner_id = userModel.getUserObject().id;
-            
+
             if(projectActive != null){
                 project.id = projectActive.id;
                 projectModel.updateProjects(project);
-            }else{
+            }else
                 projectModel.saveProjects(project);
-            }
 
-            
             $('#saveModal').modal('hide');
         },
-        trigerLoginModal: function(){
+        triggerLoginModal: function(){
             $('#loginModal').modal();
         },
         doLogin: function(){
@@ -69,6 +72,7 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
                 $scope.showLogin = false;
                 $scope.showUser= true;
                 projectModel.getProjects();
+                $location.path('/o');
             });
             
             $('#loginModal').modal('hide');
@@ -80,6 +84,20 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
             this.reset();
             projectModel.projects.splice(0,projectModel.projects.length);
             init();
+        },
+        triggerRegisterModal: function(){
+            $('#loginModal').modal('hide');
+            $('#registerModal').modal();
+        },
+        doRegister: function() {
+            var newUser = {};
+            newUser.name = $scope.register.name;
+            newUser.email = $scope.register.email;
+            newUser.password = $scope.register.password;
+            console.log(newUser);
+            userModel.registerUser(newUser);
+
+            $('#registerModal').modal('hide');
         },
         getClass: function(object){
             return object.isActive ? 'active' : '';

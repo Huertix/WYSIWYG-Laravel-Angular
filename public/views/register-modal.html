@@ -1,19 +1,28 @@
-<div id="loginModal" class="modal fade" role="dialog">
+<div id="registerModal" class="modal fade" role="dialog">
     <div class="modal-dialog" role="document">
         <!-- Modal Content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Login </h4>
+                <h4 class="modal-title">Register User  </h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" name="loginForm" ng-submit="doLogin()">
+                <form class="form-horizontal" name="registerForm" ng-submit="doRegister()">
+                    <div class="form-group">
+                        <div class="col-sm-offset-1 col-sm-2">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="text" name="name" ng-model="register.name" required
+                                   class="form-control input-ms" placeholder="Enter your name">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-offset-1 col-sm-2">
                             <label>Email</label>
                         </div>
                         <div class="col-sm-7">
-                            <input type="text" name="email" ng-model="login.email" required
+                            <input type="text" name="email" ng-model="register.email" required
                                    class="form-control input-ms" placeholder="Enter your email">
                         </div>
                     </div>
@@ -22,15 +31,13 @@
                             <label>Password</label>
                         </div>
                         <div class="col-sm-7">
-                            <input type="password" name="password" ng-model="login.password" required
+                            <input type="password" name="password" ng-model="register.password" required
                                    class="form-control input-ms" placeholder="Enter your password">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-8 col-sm-4">
-                            <button type="submit" class="btn btn-info btn-sm">Sign in</button>
-                            <button type="button" class="btn btn-default btn-sm"
-                                    ng-click="triggerRegisterModal()">Sing up</button>
+                            <button type="submit" class="btn btn-info btn-sm">Submit</button>
                         </div>
                     </div>
                 </form>

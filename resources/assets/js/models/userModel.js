@@ -2,7 +2,6 @@ myApp.factory('userModel',['$http','$window',function($http, $window){
     var userModel = {};
 
     userModel.doLogin = function(data){
-        
         return $http({
             headers: {
                 'Content-Type':'application/json'
@@ -41,6 +40,26 @@ myApp.factory('userModel',['$http','$window',function($http, $window){
 
     userModel.doUserLogout = function(){
         delete $window.sessionStorage["auth"];
+    };
+
+    userModel.registerUser = function(data){
+        return $http({
+            headers: {
+                'Content-Type':'application/json'
+            },
+            url: baseUrl + 'user',
+            method: "POST",
+            data: {
+                name: data.name,
+                email: data.email,
+                password: data.password
+            }
+        }).success(function(response){
+            userModel.doLogin(data);
+        }).error(function(data, status, headers){
+            console.log(data, status, headers);
+            alert('Register Error');
+        });
     };
 
 

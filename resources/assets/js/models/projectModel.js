@@ -32,6 +32,7 @@ myApp.factory('projectModel',['$http', function($http){
         return null;
     };
 
+
     projectModel.removeProject = function(id){
         return $http({
             headers: {
