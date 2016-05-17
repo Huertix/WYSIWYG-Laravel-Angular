@@ -1,60 +1,57 @@
-1º Install laravel -> composer create-project laravel/laravel [projectname]
+WYSIWYG APP:
 
-2º npm install
+Management of WYSIWYG projects.
 
-3º Install angular depens. with bower in /public  ->
-    bower init
-    bower install angular --save
-    bower install angular-route --save
-    bower install angular-cookies --save
-    bower install angular-wysiwyg --save
+LARAVEL + ANGULAR
 
-4º git init & setup .gitignore & first commit
-
-5º define layout.blade.php
-
-6º define header and footer. added by includes
-
-7º update gulpfile and add logo.png
-
-...
-
-10º migrations ->
-    php artisan make:migration create_project_table --create=projects
-    php artisan make:migration add_modified_data_to_projects_table --table=projects
-    php artisan migrate
-
-11º seed ->
-    php artisan make:seeder UsersTableSeeder
-        public function run()
-        {
-            DB::table('users')->insert([
-                'name' => 'xxxx',
-                'email' => 'xxxx@xxxx.com',
-                'password' => bcrypt('123'),
-            ]);
-        }
-
-    php artisan make:seeder ProjectsTableSeeder
-        public function run()
-        {
-            DB::table('projects')->insert([
-                'name' => 'Proyect 1',
-                'comment' =>'This is proyect 1',
-                'body' => '<p>This is the default proyect</p>',
-                'owner_id' => '1',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
-        }
+Requirements :
+    - php5
+    - npm
+    - bower
+    - mysql
+    - gulp
 
 
-    php artisan db:seed
-    php artisan db:seed --class=ProjectsTableSeeder
+
+Steps:
+    1º clone app:
+        git clone https://github.com/Huertix/WYSIWYG-Laravel-Angular
+
+    2º get into WYSIWYG-Laravel-Angular & sudo npm install
+
+    3º composer install
+
+    3º get into public & bower install
+
+    4º create a database in you mysql, name example "raumbild"
+        mysql -uroot -p123 -e "create database raumbild";
+
+    5º open .env in root directory and configure with your data, example:
+        DB_DATABASE=raumbild
+        DB_USERNAME=root
+        DB_PASSWORD=123
+
+    6º php artisan migrate
+
+    7º php artisan db:seed
+
+    8º compile assets:
+        gulp
 
 
-12º create model Project
-    php artisan make:model Project
-    php artisan route:list
+    9º from root php -S localhost:4000 -t public
+
+
+Seeded Users:
+    'name' => 'David',
+    'email' => 'me@raumbild.com',
+    'password' => bcrypt('123')
+
+    'name' => 'Mikel',
+    'email' => 'other@raumbild.com',
+    'password' => bcrypt('123')
+
+
+
 
 
