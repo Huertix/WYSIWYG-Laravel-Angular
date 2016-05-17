@@ -16,33 +16,37 @@ body {
   body .main-container {
     height: 535px;
     width: 100%; }
-    body .main-container #nav-container {
+    body .main-container .nav-container {
       height: 535px;
       background: #222;
       color: #fff;
       text-align: left;
       border-radius: 10px; }
-      body .main-container #nav-container ul {
+      body .main-container .nav-container ul {
         padding: 2px;
         list-style-type: none; }
-        body .main-container #nav-container ul li {
+        body .main-container .nav-container ul li {
           margin: 5px auto; }
-          body .main-container #nav-container ul li a {
+          body .main-container .nav-container ul li a {
             text-decoration: none;
             color: #fff; }
-            body .main-container #nav-container ul li a .project-row {
+            body .main-container .nav-container ul li a .project-row {
               padding-left: 10px; }
-              body .main-container #nav-container ul li a .project-row p {
+              body .main-container .nav-container ul li a .project-row p {
                 padding-left: 5px; }
-        body .main-container #nav-container ul li:hover, body .main-container #nav-container ul .active {
+        body .main-container .nav-container ul li:hover, body .main-container .nav-container ul .active {
           background: #fff;
           opacity: 0.6;
           border-radius: 5px; }
-          body .main-container #nav-container ul li:hover a, body .main-container #nav-container ul .active a {
+          body .main-container .nav-container ul li:hover a, body .main-container .nav-container ul .active a {
             color: #000; }
-          body .main-container #nav-container ul li:hover .nav-project-options, body .main-container #nav-container ul .active .nav-project-options {
+          body .main-container .nav-container ul li:hover .nav-project-options, body .main-container .nav-container ul .active .nav-project-options {
             display: inline-block;
             padding: 15px 0px 0px 20px; }
+      body .main-container .nav-container #projectsArrow {
+        position: absolute;
+        top: 10px;
+        right: 5px; }
     body .main-container #editor-container {
       height: 535px; }
       body .main-container #editor-container .dashboard {
@@ -72,34 +76,41 @@ body {
         padding: 15px 0px 5px 0px; }
 
 @media (max-width: 1199px) {
-  #nav-container {
+  .nav-container {
+    height: 400px !important;
     position: absolute;
-    top: 72px;
-    left: 0px;
+    top: 140px;
+    left: -245px;
     opacity: 0.9;
     z-index: 10;
-    width: 265px; }
-    #nav-container ul {
+    width: 265px;
+    transition: all linear 0.3s; }
+    .nav-container ul {
       padding: 2px;
       list-style-type: none; }
-      #nav-container ul li {
+      .nav-container ul li {
         margin: 5px auto; }
-        #nav-container ul li a {
+        .nav-container ul li a {
           text-decoration: none;
           color: #fff; }
-          #nav-container ul li a .project-row {
+          .nav-container ul li a .project-row {
             padding-left: 10px; }
-            #nav-container ul li a .project-row p {
+            .nav-container ul li a .project-row p {
               padding-left: 5px; }
-      #nav-container ul li:hover, #nav-container ul .active {
+      .nav-container ul li:hover, .nav-container ul .active {
         background: #fff;
         opacity: 0.6;
         border-radius: 5px; }
-        #nav-container ul li:hover a, #nav-container ul .active a {
+        .nav-container ul li:hover a, .nav-container ul .active a {
           color: #000; }
-        #nav-container ul li:hover .nav-project-options, #nav-container ul .active .nav-project-options {
+        .nav-container ul li:hover .nav-project-options, .nav-container ul .active .nav-project-options {
           display: inline-block;
-          padding: 15px 0px 0px 20px; } }
+          padding: 15px 0px 0px 20px; }
+    .nav-container #projectsArrow {
+      display: block; }
+  .nav-container.listProjectsOpen {
+    left: 0px;
+    height: 600px !important; } }
 
 @media (max-width: 991px) {
   body .main-container {
