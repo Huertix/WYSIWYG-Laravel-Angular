@@ -15,9 +15,9 @@ class ProjectsTableSeeder extends Seeder
         DB::table('projects')->insert(
             array(
                 array(
-                    'name' => 'Proyect 1',
-                    'comment' => 'This is proyect 1',
-                    'body' => '<p>This is the default proyect</p>',
+                    'name' => 'Project 1',
+                    'comment' => 'This is project 1',
+                    'body' => '<p>This is the default project</p>',
                     'owner_id' => '1',
                     'created_at' => Carbon::now('Europe/Berlin'),
                     'updated_at' => Carbon::now('Europe/Berlin')
