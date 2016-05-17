@@ -24,8 +24,10 @@ myApp.controller('myController',['$scope','projectModel','userModel','$location'
             this.data.text = projectModel.loadText(id);
             this.save.name = projectModel.getName(id);
             this.save.comment = projectModel.getComment(id);
-            this.toggleProjectsList();
 
+            setTimeout(function() {
+                angular.element( $('#projectsArrow[ng-click="toggleProjectsList()"]')).triggerHandler('click');
+            },100);
         },
         remove: function(id){
             if(userModel.getUserObject() != null)
@@ -109,6 +111,9 @@ myApp.controller('myController',['$scope','projectModel','userModel','$location'
         toggleProjectsList: function(){
             this.isProjectsListOpen = !this.isProjectsListOpen;
             this.isProjectsListClose = !this.isProjectsListClose;
+            console.log(this.isProjectsListOpen);
+            console.log(this.isProjectsListClose);
+            console.log('-----');
         }
     });
 
