@@ -60,11 +60,15 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
+        if (User::where('email', '=', $request->input('email'))->exists()) {
+            return response($request->input('email') . " already Exits", 409);
+        }
+
         $user = User::create([
-        'name' => $request->input('name'),
-        'email' => $request->input('email'),
-        'password' => bcrypt($request->input('password'))
-    ]);
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password'))
+        ]);
 
         return response($user, 201);
     }

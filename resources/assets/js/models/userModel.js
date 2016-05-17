@@ -57,8 +57,7 @@ myApp.factory('userModel',['$http','$window',function($http, $window){
         }).success(function(response){
             userModel.doLogin(data);
         }).error(function(data, status, headers){
-            console.log(data, status, headers);
-            alert('Register Error');
+            alert('Register Error:\n\n' + data);
         });
     };
 

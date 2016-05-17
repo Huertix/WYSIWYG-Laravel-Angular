@@ -100,7 +100,6 @@ myApp.controller('myController',['$scope','projectModel','userModel','$location'
             newUser.name = $scope.register.name;
             newUser.email = $scope.register.email;
             newUser.password = $scope.register.password;
-            console.log(newUser);
             userModel.registerUser(newUser);
 
             $('#registerModal').modal('hide');
