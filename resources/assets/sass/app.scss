@@ -8,6 +8,13 @@ $font-color: #fff;
 $editor-height: 400px;
 $page-width: 98%;
 
+$screen-sm-min: 768px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-md-min: 992px;
+$screen-sm-max: ($screen-md-min - 1);
+$screen-lg-min: 1200px;
+$screen-md-max: ($screen-lg-min - 1);
+
 
 body{
   background: $body-background;
@@ -88,16 +95,14 @@ body{
         color: $font-color;
         border-radius: $border-containers;
         .ta-scroll-window{
-          max-height: $editor-height + 2px;
+          height: 78%;
         }
 
         .ta-scroll-window.form-control{
           margin-top: 5px;
         }
 
-        .ta-scroll-window > .ta-bind{
-          min-height: $editor-height;
-        }
+
       }
 
       .editor-options{
@@ -123,17 +128,75 @@ body{
   }
 }
 
+@media (max-width: $screen-md-max) {
 
-//nav-mobil{
-//  position: absolute;
-//  top: 72px;
-//  left: 0px;
-//  opacity: 0.9;
-//  z-index: 10;
-//  width: 255px;
-//  height: 535px;
-//  background: #222;
-//  color: #fff;
-//  text-align: left;
-//  border-radius: 10px;
-//}
+  #nav-container{
+    position: absolute;
+    top: 72px;
+    left: 0px;
+    opacity: 0.9;
+    z-index: 10;
+    width: 265px;
+
+    ul{
+      padding: 2px;
+      list-style-type: none;
+      li {
+        margin: 5px auto;
+        a{
+          text-decoration: none;
+          color: $font-color;
+          .project-row {
+            padding-left: 10px;
+            p{
+              padding-left: 5px;
+            }
+          }
+        }
+      }
+      li:hover, .active{
+        a{
+          color: #000;
+        }
+        .nav-project-options{
+          display: inline-block;
+          padding: 15px 0px 0px 20px;
+        }
+        background: #fff;
+        opacity: 0.6;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  body {
+      .main-container {
+        height: 575px;
+
+        #editor-container{
+          height: 570px;
+        }
+      }
+
+
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  body {
+    .main-container {
+      height: 707px;
+
+      #editor-container{
+        height: 707px;
+        .dashboard{
+          .ta-scroll-window{
+            height: 58%;
+          }
+        }
+      }
+    }
+  }
+}

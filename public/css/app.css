@@ -53,11 +53,9 @@ body {
         color: #fff;
         border-radius: 10px; }
         body .main-container #editor-container .dashboard .ta-scroll-window {
-          max-height: 402px; }
+          height: 78%; }
         body .main-container #editor-container .dashboard .ta-scroll-window.form-control {
           margin-top: 5px; }
-        body .main-container #editor-container .dashboard .ta-scroll-window > .ta-bind {
-          min-height: 400px; }
       body .main-container #editor-container .editor-options {
         margin-top: 10px; }
   body .row-footer {
@@ -72,5 +70,49 @@ body {
       body .row-footer .container p {
         float: right;
         padding: 15px 0px 5px 0px; }
+
+@media (max-width: 1199px) {
+  #nav-container {
+    position: absolute;
+    top: 72px;
+    left: 0px;
+    opacity: 0.9;
+    z-index: 10;
+    width: 265px; }
+    #nav-container ul {
+      padding: 2px;
+      list-style-type: none; }
+      #nav-container ul li {
+        margin: 5px auto; }
+        #nav-container ul li a {
+          text-decoration: none;
+          color: #fff; }
+          #nav-container ul li a .project-row {
+            padding-left: 10px; }
+            #nav-container ul li a .project-row p {
+              padding-left: 5px; }
+      #nav-container ul li:hover, #nav-container ul .active {
+        background: #fff;
+        opacity: 0.6;
+        border-radius: 5px; }
+        #nav-container ul li:hover a, #nav-container ul .active a {
+          color: #000; }
+        #nav-container ul li:hover .nav-project-options, #nav-container ul .active .nav-project-options {
+          display: inline-block;
+          padding: 15px 0px 0px 20px; } }
+
+@media (max-width: 991px) {
+  body .main-container {
+    height: 575px; }
+    body .main-container #editor-container {
+      height: 570px; } }
+
+@media (max-width: 767px) {
+  body .main-container {
+    height: 707px; }
+    body .main-container #editor-container {
+      height: 707px; }
+      body .main-container #editor-container .dashboard .ta-scroll-window {
+        height: 58%; } }
 
 /*# sourceMappingURL=app.css.map */
