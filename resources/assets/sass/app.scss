@@ -47,7 +47,7 @@ body{
     height: $page-height;
     width: 100%;
 
-    #nav-container{
+    .nav-container{
       height: $page-height;
       background: $main-container-background;
       color: $font-color;
@@ -82,6 +82,11 @@ body{
           opacity: 0.6;
           border-radius: 5px;
         }
+      }
+      #projectsArrow{
+        position: absolute;
+        top: 10px;
+        right: 5px;
       }
     }
 
@@ -130,14 +135,16 @@ body{
 
 @media (max-width: $screen-md-max) {
 
-  #nav-container{
+  .nav-container{
+    height: 400px !important;
     position: absolute;
-    top: 72px;
-    left: 0px;
+    top: 140px;
+    left: -245px;
     opacity: 0.9;
     z-index: 10;
     width: 265px;
-
+    -webkit-transition:all linear 0.3s;
+    transition:all linear 0.3s;
     ul{
       padding: 2px;
       list-style-type: none;
@@ -167,20 +174,25 @@ body{
         border-radius: 5px;
       }
     }
+    #projectsArrow{
+      display: block;
+    }
+  }
+  .nav-container.listProjectsOpen{
+    left: 0px;
+    height: 600px !important;
   }
 }
 
 @media (max-width: $screen-sm-max) {
   body {
-      .main-container {
-        height: 575px;
+    .main-container {
+      height: 575px;
 
-        #editor-container{
-          height: 570px;
-        }
+      #editor-container{
+        height: 570px;
       }
-
-
+    }
   }
 }
 

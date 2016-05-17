@@ -28,6 +28,7 @@
     <script type="text/javascript" src="{{ asset('bower_components/textAngular/dist/textAngular-rangy.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bower_components/textAngular/dist/textAngular-sanitize.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bower_components/textAngular/dist/textAngular.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/angular-animate/angular-animate.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/controllers.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/models.js') }}"></script>
