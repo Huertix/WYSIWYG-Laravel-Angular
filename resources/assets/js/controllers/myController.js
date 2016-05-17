@@ -37,17 +37,20 @@ myApp.controller('myController',['$scope','projectModel','userModel', function($
             var project = {};
             var projectActive = projectModel.getProjectActive();
 
+
             project.name = this.save.name;
             project.comment = this.save.comment;
             project.body = this.data.text;
             project.owner_id = userModel.getUserObject().id;
             
             if(projectActive != null){
+                project.id = projectActive.id;
                 projectModel.updateProjects(project);
             }else{
                 projectModel.saveProjects(project);
             }
 
+            
             $('#saveModal').modal('hide');
         },
         trigerLoginModal: function(){

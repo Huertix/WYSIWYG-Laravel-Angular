@@ -84,7 +84,16 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $project = Project::find($id);
+        $project->name = $request->input('name');
+        $project->comment = $request->input('comment');
+        $project->body = $request->input('body');
+        $project->owner_id = $request->input('owner_id');
+
+        $project->save();
+
+        return response($project, 201);
     }
 
     /**
